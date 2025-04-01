@@ -3,22 +3,24 @@
     <head>
         <meta charset="utf-8">
 
-        <!-- Forces Internet Explorer to use the latest rendering engine (useful for legacy support) -->
+        <!-- Ensures compatibility with Internet Explorer's latest rendering engine -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
         <title>Gus A. | Full-Stack Web Dev</title>
         
-        <!-- link rel="icon" type="image/x-icon" href="/images/favicon.ico" -->
-        <!-- Space to add the Favicon (webpage image in tab) get image and save in images as Favicon.ico -->
+        <!-- Favicon (tab icon) - Uncomment and add an image in /images/ as favicon.ico -->
+        <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
 
-        <meta name="description" content="Gus's portfolio - Showcasing my projects, skills, and experience in software development, JavaScript, C++, Python, and more."">
+        <!-- Meta description for SEO -->
+        <meta name="description" content="Gus's portfolio - Showcasing my projects, skills, and experience in software development, JavaScript, C++, Python, and more.">
 
-        <!-- Ensures the page scales correctly on different screen size -->
+        <!-- Responsive design: Ensures proper scaling on different screen sizes -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <!-- Links to CSS Styling Sheet -->
+        <!-- Link to external CSS stylesheet -->
         <link rel="stylesheet" href="styles.css">
         
-        <!-- link to google font "Tektur" -->
+        <!-- Google Font: Tektur -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
@@ -26,56 +28,95 @@
     </head>
     <body>
 
-        <!-- #container: Wraps everything to control layout and centering -->
+        <!-- #container: Wraps all content for better layout control -->
         <div id="container">
 
-            <!-- #hero: Opening screen-->
+            <!-- #hero: Hero section / introductory banner -->
             <header id="hero">
-                <h1 class="tektur-tittle">Hello there! I'm <span class="highlight">Gus</span>, a full-stack web developer.</h1>
-                <!-- #scroll-button: Scrolls to About section -->
+                <h1 class="tektur-title">
+                    Hello there! I'm <span class="highlight">Gus</span>, a full-stack web developer.
+                </h1>
+                <!-- Button to scroll to the "Projects" section -->
                 <button id="scroll-button">View My Work</button>
-                <!-- #theme-toggle: Light/Dark mode switch -->
+                <!-- Button to toggle between light and dark mode -->
                 <button id="theme-toggle">🌞</button>
-                <!--Switch later to images with animation instead of emojis-->
+                <!-- (Future Improvement) Replace emoji with an animated icon -->
             </header>
 
-            <!--#navbar: Sticky/floating navigation bar-->
+            <!-- #navbar: Sticky navigation bar -->
             <nav id="navbar">
-                <!-- .nav-item: Individual nav buttons -->
-                <!-- Add links to jump to sections -->
+                <!-- Navigation links to page sections -->
+                <a href="#home" class="nav-item">Home</a>
                 <a href="#about" class="nav-item">About</a>
                 <a href="#projects" class="nav-item">Projects</a>
                 <a href="#contact" class="nav-item">Contact</a>
-                <!--make sure icons are images later on-->
+                <!-- (Future Improvement) Replace text with icons/images for better UX -->
             </nav>
 
-            <!--#about: About me section-->
+            <!-- #about: About Me section -->
             <section id="about" class="section">
-                <!--Add introduction, qualifications, passions, skills and links to GitHub and LinkedIn -->
+                <h2>About Me</h2>
+                <p>
+                    I'm <span class="highlight">Gus</span>, a passionate and dedicated full-stack developer based in the UK. 
+                    I hold a 2:1 degree in Computer Science from the University of Greenwich (Class of 2024) and have a strong foundation in software development. 
+                    My primary focus is mastering modern web technologies and problem-solving through efficient, scalable code.
+                </p>
+                <p>
+                    I am proficient in HTML, CSS, JavaScript, C++, and Python, and I continuously refine my skills to stay ahead in the ever-evolving tech industry. 
+                    Fluent in Portuguese and English, and conversational in Spanish, I enjoy collaborating with diverse teams and tackling complex challenges.
+                    Driven by my passion for technology, I am actively building projects to showcase my expertise.
+                </p>
             </section>
 
-            <!--#projects: Rotating projects showcase-->
+            <!-- #projects: Projects showcase -->
             <section id="projects" class="section">
+                <h2>Projects</h2>
                 <div class="project-carousel">
+                    <!-- Each project card contains a title and description -->
                     <div class="project-card">
-                        <!--Inlcude project title and a short description of it. One card per project.-->
+                        <h3>Portfolio Website</h3>
+                        <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
                     </div>
+                    <div class="project-card">
+                        <h3>JS-Smart-Calculator</h3>
+                        <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                    </div>
+                    <!-- (Future Improvement) Add images/thumbnails for each project -->
                 </div>
             </section>
             
-            <!--#contact: Contact form section-->
+            <!-- #contact: Contact form section -->
             <section id="contact" class="section">
-                <!--Implement form submission box here to contact me directly-->
+                <h2>Contact</h2>
+                <p>
+                    Liked what you saw and want to work together? Send me any comments and questions by filling out the form below! 
+                    I will get back to you as soon as possible.
+                </p>
+                
+                <!-- Contact form -->
+                <form>
+                    <label for="user-name">Name:</label>
+                    <input type="text" id="user-name" name="user-name" required>
+                    
+                    <label for="user-email">Email:</label>
+                    <input type="email" id="user-email" name="user-email" required>
+                    
+                    <label for="user-message">Message:</label>
+                    <textarea id="user-message" name="user-message" required></textarea>
+                    
+                    <input type="submit" value="Submit">
+                </form>
             </section>
 
+            <!-- Footer section -->
             <footer id="footer">
-            <!--Add author, copyright, credits to Ben Scott for inspiration for website (if needed by then end)-->
-            <!--Bottom-most section of the page-->
+                <!-- Add author name, copyright, and potential credits -->
+                <!-- (Future Improvement) Credit Ben Scott for inspiration if needed -->
             </footer>
 
         </div> <!-- End of #container -->
+
+        <!-- Link to JavaScript file -->
         <script src="script.js" async defer></script>
     </body>
 </html>
-
-

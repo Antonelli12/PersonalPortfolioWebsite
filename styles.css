@@ -1,78 +1,77 @@
-/*Root stores the variables for consistency and efficiency*/
-:root{
-    /*Dark Mode (Default)*/
+/*=============================
+  Root Variables for Theme Colors
+=============================*/
+:root {
+    /* Dark Mode (Default) */
     --background-color: #272a34;
     --highlight-color: #00aedb;
     --text-color: white;
 
-    /*LIght Mode*/
+    /* Light Mode */
     --light-background-color: #fffaf0;
     --light-highlight-color: #9d2933;
-    --light-text-color: #4b3832 ;
+    --light-text-color: #4b3832;
 }
 
-/*Google Fonts "Tektur" being used for hero and titles*/
-.tektur-tittle {
-    font-family: "Tektur", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-}
-/*Highlight for important information*/
-.highlight {
-color: var(--highlight-color);
-font-weight: bold;
-}
-
-/*Default Dark Mode*/
-body{
-    background-color: var(--background-color);
-    color: var(--text-color)
-}
-
-/*Light Mode (Applied via a Class in JS)*/
-/* When light mode is enabled */
+/* Light Mode (Applied via a Class in JS) */
 .light-mode {
     --background-color: var(--light-background-color);
     --highlight-color: var(--light-highlight-color);
     --text-color: var(--light-text-color);
 }
 
-#hero{
+/*=============================
+  Global Styles
+=============================*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*=============================
+  Typography & Highlights
+=============================*/
+
+/* Google Font "Tektur" for Titles */
+.tektur-title {
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+/* Highlight Important Text */
+.highlight {
+    color: var(--highlight-color);
+    font-weight: bold;
+}
+
+/*=============================
+  Hero Section
+=============================*/
+#hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font: Tektur;
-    color:var(--text-color);
+    font-size: 1.5rem;
+    color: var(--text-color);
 }
 
-/*Buttons -------------------------------------*/
-
-/*Header Buttons*/
-#scroll-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: transparent;
-    color: var(--text-color); /* Fix text color */
-    border: 2px solid var(--highlight); /* Make border color dynamic */
-    cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-#scroll-button:hover {
-    background-color: var(--highlight);
-    color: var(--background-color);
-}
-
-#theme-toggle{
-    margin-top: 20px;
+/*=============================
+  Buttons
+=============================*/
+button {
     padding: 10px 20px;
     font-size: 1.2rem;
     background-color: transparent;
@@ -81,9 +80,58 @@ body{
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s ease;
-} 
-/* Change button color when in light mode */
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+}
+
+/* Hero Section Buttons */
+#scroll-button {
+    margin-top: 20px;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    margin-top: 20px;
+}
+
+/* Light Mode Button Fix */
 .light-mode #theme-toggle {
     color: var(--light-text-color);
-    border: 2px solid var(--light-highlight-color);
+    border-color: var(--light-highlight-color);
+}
+
+/*=============================
+  Navigation Bar
+=============================*/
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--background-color);
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.nav-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--highlight-color);
+}
+
+/* Active Page Indicator */
+.nav-item.active {
+    color: var(--highlight-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--highlight-color);
 }
