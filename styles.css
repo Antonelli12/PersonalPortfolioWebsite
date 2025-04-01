@@ -1,0 +1,89 @@
+/*Root stores the variables for consistency and efficiency*/
+:root{
+    /*Dark Mode (Default)*/
+    --background-color: #272a34;
+    --highlight-color: #00aedb;
+    --text-color: white;
+
+    /*LIght Mode*/
+    --light-background-color: #fffaf0;
+    --light-highlight-color: #9d2933;
+    --light-text-color: #4b3832 ;
+}
+
+/*Google Fonts "Tektur" being used for hero and titles*/
+.tektur-tittle {
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+}
+/*Highlight for important information*/
+.highlight {
+color: var(--highlight-color);
+font-weight: bold;
+}
+
+/*Default Dark Mode*/
+body{
+    background-color: var(--background-color);
+    color: var(--text-color)
+}
+
+/*Light Mode (Applied via a Class in JS)*/
+/* When light mode is enabled */
+.light-mode {
+    --background-color: var(--light-background-color);
+    --highlight-color: var(--light-highlight-color);
+    --text-color: var(--light-text-color);
+}
+
+#hero{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font: Tektur;
+    color:var(--text-color);
+}
+
+/*Buttons -------------------------------------*/
+
+/*Header Buttons*/
+#scroll-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: var(--text-color); /* Fix text color */
+    border: 2px solid var(--highlight); /* Make border color dynamic */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#scroll-button:hover {
+    background-color: var(--highlight);
+    color: var(--background-color);
+}
+
+#theme-toggle{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--highlight-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+} 
+/* Change button color when in light mode */
+.light-mode #theme-toggle {
+    color: var(--light-text-color);
+    border: 2px solid var(--light-highlight-color);
+}

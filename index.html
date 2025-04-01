@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <!-- Forces Internet Explorer to use the latest rendering engine (useful for legacy support) -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Gus A. | Full-Stack Web Dev</title>
+        
+        <!-- link rel="icon" type="image/x-icon" href="/images/favicon.ico" -->
+        <!-- Space to add the Favicon (webpage image in tab) get image and save in images as Favicon.ico -->
+
+        <meta name="description" content="Gus's portfolio - Showcasing my projects, skills, and experience in software development, JavaScript, C++, Python, and more."">
+
+        <!-- Ensures the page scales correctly on different screen size -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Links to CSS Styling Sheet -->
+        <link rel="stylesheet" href="styles.css">
+        
+        <!-- link to google font "Tektur" -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+   
+    </head>
+    <body>
+
+        <!-- #container: Wraps everything to control layout and centering -->
+        <div id="container">
+
+            <!-- #hero: Opening screen-->
+            <header id="hero">
+                <h1 class="tektur-tittle">Hello there! I'm <span class="highlight">Gus</span>, a full-stack web developer.</h1>
+                <!-- #scroll-button: Scrolls to About section -->
+                <button id="scroll-button">View My Work</button>
+                <!-- #theme-toggle: Light/Dark mode switch -->
+                <button id="theme-toggle">🌞</button>
+                <!--Switch later to images with animation instead of emojis-->
+            </header>
+
+            <!--#navbar: Sticky/floating navigation bar-->
+            <nav id="navbar">
+                <!-- .nav-item: Individual nav buttons -->
+                <!-- Add links to jump to sections -->
+                <a href="#about" class="nav-item">About</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="nav-item">Contact</a>
+                <!--make sure icons are images later on-->
+            </nav>
+
+            <!--#about: About me section-->
+            <section id="about" class="section">
+                <!--Add introduction, qualifications, passions, skills and links to GitHub and LinkedIn -->
+            </section>
+
+            <!--#projects: Rotating projects showcase-->
+            <section id="projects" class="section">
+                <div class="project-carousel">
+                    <div class="project-card">
+                        <!--Inlcude project title and a short description of it. One card per project.-->
+                    </div>
+                </div>
+            </section>
+            
+            <!--#contact: Contact form section-->
+            <section id="contact" class="section">
+                <!--Implement form submission box here to contact me directly-->
+            </section>
+
+            <footer id="footer">
+            <!--Add author, copyright, credits to Ben Scott for inspiration for website (if needed by then end)-->
+            <!--Bottom-most section of the page-->
+            </footer>
+
+        </div> <!-- End of #container -->
+        <script src="script.js" async defer></script>
+    </body>
+</html>
+
+
