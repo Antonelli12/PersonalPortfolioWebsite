@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const homeLink = document.querySelector("a[href='#home']"); // Select the 'Home' navigation link
     const scrollButton = document.getElementById("scroll-button"); // Select the 'View My Work' button
     const aboutSection = document.getElementById("about"); // Select the 'About' section
+    const heroSection = document.getElementById("hero"); // Select the 'Hero' Section
+    const navBar = document.getElementById("navbar"); // Select the "Navegation Bar"
 
     // Toggle Light/Dark Mode
     themeToggle.addEventListener("click", function() {
@@ -24,7 +26,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Detect scroll position and highlight the corresponding navbar link
     window.addEventListener("scroll", () => {
         let current = ""; // Stores the ID of the currently visible section
+        const heroBottom = heroSection.offsetHeight;
+        const showNavBuffer = 150;
 
+        if (window.scrollY > heroBottom - showNavBuffer) {
+            navBar.classList.add("show");
+            navBar.classList.remove("hidden");
+        } else {
+            navBar.classList.remove("show");
+            navBar.classList.add("hidden");
+        }       
+
+        
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100; // Adjust for navbar height
             if (window.scrollY >= sectionTop) {
@@ -40,6 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
 
     // Smoothly scroll to the top when the 'Home' link is clicked
     homeLink.addEventListener("click", function (event) {
