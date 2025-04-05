@@ -54,7 +54,7 @@
             </nav>
 
             <!-- #about: About Me section -->
-            <section id="about" class="section">
+            <section id="about">
                 <h2>About Me</h2>
                 <p>
                     I'm <span class="highlight">Gus</span>, a passionate and dedicated full-stack developer based in the UK. 
@@ -69,42 +69,55 @@
             </section>
 
             <!-- #projects: Projects showcase -->
-            <section id="projects" class="section">
+            <section id="projects">
                 <h2>Projects</h2>
-                <div class="project-carousel">
-                    <!-- Each project card contains a title and description -->
-                    <div class="project-card">
-                        <h3>Portfolio Website</h3>
-                        <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
+                <div class="carousel-container">                
+                    <div class="carousel">
+                        <!-- Each project card contains a title and description -->
+                        <div class="card">
+                            <img src="" alt=""> <!-- Include pictures here later-->
+                            <h3>Portfolio Website</h3>
+                            <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
+                        </div>
+
+                        <div class="card">
+                            <img src="" alt=""> <!-- Include pictures here later-->
+                            <h3>"Smart" Calculator</h3>
+                            <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <img src="" alt=""> <!-- Include pictures here later-->
+                            <h3>Coin Flipper</h3>
+                            <p>description goes here</p>
+                        </div>
+                        <!-- (Future Improvement) Add images/thumbnails for each project -->
                     </div>
-                    <div class="project-card">
-                        <h3>JS-Smart-Calculator</h3>
-                        <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
-                    </div>
-                    <!-- (Future Improvement) Add images/thumbnails for each project -->
+
+                    <!-- Floating Buttons -->
+                    <button class="slide-button left">&#9664;</button> <!-- ◀️ -->
+                    <button class="slide-button right">&#9654;</button> <!-- ▶️ -->
+
+                    <button id="all-projects">View All Projects</button>
                 </div>
-            </section>
+                </section>
             
             <!-- #contact: Contact form section -->
-            <section id="contact" class="section">
+            <section id="contact">
                 <h2>Contact</h2>
                 <p>
-                    Liked what you saw and want to work together? Send me any comments and questions by filling out the form below! 
-                    I will get back to you as soon as possible.
+                    Liked what you saw? Want to work together? Send me any comments and questions by filling out the form below! <br> I will get back to you as soon as possible.
                 </p>
                 
                 <!-- Contact form -->
                 <form>
-                    <label for="user-name">Name:</label>
-                    <input type="text" id="user-name" name="user-name" required>
+                    <input type="text" id="user-name" name="user-name" required placeholder="Name">
                     
-                    <label for="user-email">Email:</label>
-                    <input type="email" id="user-email" name="user-email" required>
+                    <input type="email" id="user-email" name="user-email" required placeholder="Email">
                     
-                    <label for="user-message">Message:</label>
-                    <textarea id="user-message" name="user-message" required></textarea>
+                    <textarea id="user-message" name="user-message" required placeholder="Your message"></textarea>
                     
-                    <input type="submit" value="Submit">
+                    <input id="submit" type="submit" value="Submit">
                 </form>
             </section>
 
