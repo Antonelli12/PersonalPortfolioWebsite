@@ -40,9 +40,9 @@
                     Hello there! I'm <span class="highlight">Gus</span>, a full-stack web developer.
                 </h1>
                 <!-- Button to scroll to the "Projects" section -->
-                <button id="scroll-button">View My Work</button>
+                <button id="scroll-button" class="btn">View My Work</button>
                 <!-- Button to toggle between light and dark mode -->
-                <button id="theme-toggle">🌞</button>
+                <button id="theme-toggle" class="btn">🌞</button>
                 <!-- (Future Improvement) Replace emoji with an animated icon -->
             </header>
 
@@ -89,43 +89,100 @@
                 <p>
                     I'm actively expanding my portfolio with new projects, sharpening my skills every day, and working toward joining an industry-leading tech company.  
                 </p>
-                <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
-                <button class="linksButton"><i class="devicon-github-original colored"></i></button>
+                <div class="about-buttons">
+                    <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
+                    <button class="linksButton"><i class="devicon-github-original"></i></button>
+                </div>
             </section>
 
             <!-- #projects: Projects showcase -->
             <section id="projects">
                 <h2>Projects</h2>
-                <div class="carousel-container">                
+                <div class="carousel-container">
+                    
+                    <!-- Card Slide button right -->
+                    <button class="slide-button left">&#9664;</button> <!-- ◀️ -->            
+                    
                     <div class="carousel">
-                        <!-- Each project card contains a title and description -->
-                        <div class="card">
-                            <img src="" alt=""> <!-- Include pictures here later-->
-                            <h3>Portfolio Website</h3>
-                            <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
-                        </div>
-
-                        <div class="card">
-                            <img src="" alt=""> <!-- Include pictures here later-->
-                            <h3>"Smart" Calculator</h3>
-                            <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="Images/project_Portfolio.png" alt="Illustration of Website Project">
+                                <h3>Portfolio Website</h3>
+                                <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
+                            </div>
                         </div>
                         
-                        <div class="card">
-                            <img src="" alt=""> <!-- Include pictures here later-->
-                            <h3>Coin Flipper</h3>
-                            <p>description goes here</p>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="Images/project_SmartCalculator.png" alt="Illustration of Calculator Project"> <!-- Include pictures here later-->
+                                <h3>"Smart" Calculator</h3>
+                                <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                            </div>
                         </div>
-                        <!-- (Future Improvement) Add images/thumbnails for each project -->
+                        
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
+
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <img src="" alt=""> <!-- Include pictures here later-->
+                                <h3>Projects</h3>
+                                <p>TBD</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Floating Buttons -->
-                    <button class="slide-button left">&#9664;</button> <!-- ◀️ -->
+                    <!-- Card Slide button right -->
                     <button class="slide-button right">&#9654;</button> <!-- ▶️ -->
 
-                    <button id="all-projects">View All Projects</button>
+                    <button id="all-projects" class="btn">View All Projects</button>
                 </div>
-                </section>
+            </section>
             
             <!-- #contact: Contact form section -->
             <section id="contact">
@@ -136,23 +193,22 @@
                 
                 <!-- Contact form -->
                 <form>
-                    <input type="text" id="user-name" name="user-name" required placeholder="Name">
-                    
-                    <input type="email" id="user-email" name="user-email" required placeholder="Email">
-                    
+                    <input type="text" id="user-name" name="user-name" required placeholder="Name">                
+                    <input type="email" id="user-email" name="user-email" required placeholder="Email">                    
                     <textarea id="user-message" name="user-message" required placeholder="Your message"></textarea>
-                    
                     <input id="submit" type="submit" value="Submit">
                 </form>
             </section>
-
-            <!-- Footer section -->
-            <footer id="footer">
-                <!-- Add author name, copyright, and potential credits -->
-                <!-- (Future Improvement) Credit Ben Scott for inspiration if needed -->
-            </footer>
-
         </div> <!-- End of #container -->
+
+        <!-- Footer section -->
+        <footer id="footer">
+            <div class="footer-buttons">
+                <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
+                <button class="linksButton"><i class="devicon-github-original colored"></i></button>
+            </div>
+            <p>&copy; 2025 Gus A. All rights reserved.</p>
+        </footer>
 
         <!-- Link to JavaScript file -->
         <script src="script.js" async defer></script>

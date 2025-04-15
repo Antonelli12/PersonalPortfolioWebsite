@@ -1,73 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // === Element Selectors ===
-    const themeToggle = document.getElementById("theme-toggle"); // Theme toggle button
-    const carousel = document.querySelector('.carousel'); // Carousel container
-    const cards = document.querySelectorAll(".card"); // A single card element (consider changing to querySelectorAll if you want all cards)
-    const leftButton = document.querySelector('.slide-button.left'); // Left scroll button
-    const rightButton = document.querySelector('.slide-button.right'); // Right scroll button
-    const sections = document.querySelectorAll("section"); // All section elements on the page
-    const navLinks = document.querySelectorAll("#navbar a"); // All anchor links in the navbar
-    const homeLink = document.querySelector("a[href='#home']"); // Anchor link to scroll to top
-    const scrollButton = document.getElementById("scroll-button"); // Button to scroll to About section
-    const aboutSection = document.getElementById("about"); // About section
-    const heroSection = document.getElementById("hero"); // Hero section
-    const navBar = document.getElementById("navbar"); // The main navigation bar
-
-    // === Helper Functions ===
-
-    /**
-     * Updates which navbar link is marked as "active" based on the current section in view.
-     * @param {string} currentSectionId - The ID of the currently visible section.
-     */
-    function updateActiveNavLink(currentSectionId) {
-        navLinks.forEach(link => {
-            // Highlight the link that includes the current section's ID in its href
-            link.classList.toggle("active", link.getAttribute("href").includes(currentSectionId));
-        });
-    }
+    const themeToggle = document.getElementById("theme-toggle");
+    const carousel = document.querySelector('.carousel');
+    const leftButton = document.querySelector('.slide-button.left');
+    const rightButton = document.querySelector('.slide-button.right');
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#navbar a");
+    const homeLink = document.querySelector("a[href='#home']");
+    const scrollButton = document.getElementById("scroll-button");
+    const aboutSection = document.getElementById("about");
+    const heroSection = document.getElementById("hero");
+    const navBar = document.getElementById("navbar");
 
     // === Theme Toggle ===
-
-    /**
-     * Toggles between light mode and dark mode on button click.
-     * Updates the button icon based on the current theme.
-     */
-    themeToggle.addEventListener("click", function() {
+    themeToggle.addEventListener("click", function () {
         document.body.classList.toggle("light-mode");
-
-        // Switch icon based on current mode
         themeToggle.innerText = document.body.classList.contains("light-mode") ? "🌙" : "🌞";
     });
 
-    // === Smooth Scroll Actions ===
-
-    /**
-     * Scrolls smoothly to the About section when the scroll button is clicked.
-     */
-    scrollButton.addEventListener("click", function () {
+    // === Smooth Scrolling ===
+    scrollButton?.addEventListener("click", () => {
         aboutSection.scrollIntoView({ behavior: "smooth" });
     });
 
-    /**
-     * Scrolls smoothly to the top of the page when the home link is clicked.
-     */
-    homeLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default anchor behavior
+    homeLink?.addEventListener("click", function (event) {
+        event.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // === Scroll and Navbar Updates ===
-
-    /**
-     * Handles showing the navbar after scrolling past the hero section
-     * and updates which nav link is active based on scroll position.
-     */
+    // === Navbar Scroll Handling ===
     window.addEventListener("scroll", () => {
         let currentSectionId = "";
         const heroBottom = heroSection.offsetHeight;
-        const showNavBuffer = 500; // Delay buffer to trigger navbar visibility
+        const showNavBuffer = 500;
 
-        // Show/hide navbar depending on scroll position
         if (window.scrollY > heroBottom - showNavBuffer) {
             navBar.classList.add("show");
             navBar.classList.remove("hidden");
@@ -76,30 +41,72 @@ document.addEventListener("DOMContentLoaded", function () {
             navBar.classList.add("hidden");
         }
 
-        // Determine current section in view to highlight the correct nav link
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100; // Adjust for offset
+            const sectionTop = section.offsetTop - 100;
             if (window.scrollY >= sectionTop) {
                 currentSectionId = section.getAttribute("id");
             }
         });
 
-        updateActiveNavLink(currentSectionId);
+        navLinks.forEach(link => {
+            link.classList.toggle("active", link.getAttribute("href").includes(currentSectionId));
+        });
     });
 
-    // === Carousel Scroll Buttons ===
+    // === Carousel Logic (Simplified, No Clones) ===
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const cardWidth = cards[0].offsetWidth + 32; // width + margin/gap
+    let currentIndex = 0;
 
-    /**
-     * Scrolls the carousel to the left by 300px with smooth animation.
-     */
-    leftButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    function scrollToCard(index) {
+        const card = cards[index];
+        if (!card) return;
+    
+        highlightCard(index);
+    
+        const container = document.querySelector('.carousel-container');
+        const containerRect = container.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+    
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const cardCenter = cardRect.left + cardRect.width / 2;
+    
+        const scrollOffset = cardCenter - containerCenter;
+        carousel.scrollLeft += scrollOffset;
+    
+        currentIndex = index;
+    }
+    
+
+    function scrollNextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        scrollToCard(currentIndex);
+    }
+
+    function scrollPrevCard() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        scrollToCard(currentIndex);
+    }
+
+    function highlightCard(index) {
+        cards.forEach(card => card.classList.remove("active"));
+        cards[index].classList.add("active");
+    }
+
+    leftButton.addEventListener("click", scrollPrevCard);
+    rightButton.addEventListener("click", scrollNextCard);
+
+    let autoScroll = setInterval(scrollNextCard, 4000);
+    carousel.addEventListener("mouseenter", () => clearInterval(autoScroll));
+    carousel.addEventListener("mouseleave", () => {
+        autoScroll = setInterval(scrollNextCard, 4000);
     });
 
-    /**
-     * Scrolls the carousel to the right by 300px with smooth animation.
-     */
-    rightButton.addEventListener('click', () => {
-        carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    cards.forEach((card, index) => {
+        card.addEventListener("mouseenter", () => highlightCard(index));
+        card.addEventListener("mouseleave", () => scrollToCard(currentIndex));
     });
+
+    // On Load: Center First Card
+    scrollToCard(currentIndex);
 });
