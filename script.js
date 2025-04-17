@@ -1,38 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // === Element Selectors ===
     const themeToggle = document.getElementById("theme-toggle");
-    const carousel = document.querySelector('.carousel');
-    const leftButton = document.querySelector('.slide-button.left');
-    const rightButton = document.querySelector('.slide-button.right');
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("#navbar a");
-    const homeLink = document.querySelector("a[href='#home']");
     const scrollButton = document.getElementById("scroll-button");
+    const homeLink = document.querySelector("a[href='#home']");
     const aboutSection = document.getElementById("about");
     const heroSection = document.getElementById("hero");
     const navBar = document.getElementById("navbar");
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("#navbar a");
 
-    // === Theme Toggle ===
-    themeToggle.addEventListener("click", function () {
+    // === Theme Toggle (Dark / Light Mode) ===
+    themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
         themeToggle.innerText = document.body.classList.contains("light-mode") ? "🌙" : "🌞";
     });
 
-    // === Smooth Scrolling ===
+    // === Smooth Scrolling Handlers ===
     scrollButton?.addEventListener("click", () => {
         aboutSection.scrollIntoView({ behavior: "smooth" });
     });
 
-    homeLink?.addEventListener("click", function (event) {
-        event.preventDefault();
+    homeLink?.addEventListener("click", (e) => {
+        e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // === Navbar Scroll Handling ===
+    // === Navbar Scroll Behavior ===
     window.addEventListener("scroll", () => {
         let currentSectionId = "";
         const heroBottom = heroSection.offsetHeight;
         const showNavBuffer = 500;
 
+        // Toggle navbar visibility after hero section
         if (window.scrollY > heroBottom - showNavBuffer) {
             navBar.classList.add("show");
             navBar.classList.remove("hidden");
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             navBar.classList.add("hidden");
         }
 
+        // Highlight the active nav link
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
             if (window.scrollY >= sectionTop) {
@@ -53,60 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // === Carousel Logic (Simplified, No Clones) ===
-    const cards = Array.from(document.querySelectorAll(".card"));
-    const cardWidth = cards[0].offsetWidth + 32; // width + margin/gap
-    let currentIndex = 0;
+    // === Project Grid Expand/Collapse Logic ===
+    const projectGrid = document.getElementById("project-grid");
+    const toggleBtn = document.getElementById("toggle-projects");
 
-    function scrollToCard(index) {
-        const card = cards[index];
-        if (!card) return;
-    
-        highlightCard(index);
-    
-        const container = document.querySelector('.carousel-container');
-        const containerRect = container.getBoundingClientRect();
-        const cardRect = card.getBoundingClientRect();
-    
-        const containerCenter = containerRect.left + containerRect.width / 2;
-        const cardCenter = cardRect.left + cardRect.width / 2;
-    
-        const scrollOffset = cardCenter - containerCenter;
-        carousel.scrollLeft += scrollOffset;
-    
-        currentIndex = index;
-    }
-    
+    toggleBtn?.addEventListener("click", () => {
+        const isExpanded = projectGrid.classList.contains("expanded");
 
-    function scrollNextCard() {
-        currentIndex = (currentIndex + 1) % cards.length;
-        scrollToCard(currentIndex);
-    }
+        // Toggle class to expand/collapse the grid
+        projectGrid.classList.toggle("expanded", !isExpanded);
+        projectGrid.classList.toggle("collapsed", isExpanded);
 
-    function scrollPrevCard() {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-        scrollToCard(currentIndex);
-    }
-
-    function highlightCard(index) {
-        cards.forEach(card => card.classList.remove("active"));
-        cards[index].classList.add("active");
-    }
-
-    leftButton.addEventListener("click", scrollPrevCard);
-    rightButton.addEventListener("click", scrollNextCard);
-
-    let autoScroll = setInterval(scrollNextCard, 4000);
-    carousel.addEventListener("mouseenter", () => clearInterval(autoScroll));
-    carousel.addEventListener("mouseleave", () => {
-        autoScroll = setInterval(scrollNextCard, 4000);
+        // Toggle button label
+        toggleBtn.textContent = isExpanded ? "View All Projects" : "Collapse View";
     });
 
-    cards.forEach((card, index) => {
-        card.addEventListener("mouseenter", () => highlightCard(index));
-        card.addEventListener("mouseleave", () => scrollToCard(currentIndex));
-    });
-
-    // On Load: Center First Card
-    scrollToCard(currentIndex);
 });

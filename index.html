@@ -58,132 +58,118 @@
 
             <!-- #about: About Me section -->
             <section id="about">
-                <h2>About Me</h2>
-                <h3>Introduction</h3>
-                <p>
+                <div class="about-content">
+                  <h2>About Me</h2>
+              
+                  <h3>Introduction</h3>
+                  <p>
                     Hi, I'm Gus — a passionate full-stack developer based in the UK. I graduated with a 2:1 degree in Computer Science from the University of Greenwich (Class of 2024) and have built a strong foundation in modern software development.
-                </p>
-                <h3>My Skills</h3>
-                <div class="skills-icons">
+                  </p>
+              
+                  <h3>My Skills</h3>
+                  <p>
+                    I specialize in creating efficient, scalable solutions using technologies like HTML, CSS, JavaScript, C++, and Python.
+                    I'm committed to continuous learning, keeping up with the latest advancements in web development and software engineering.
+                  </p>
+                  <div class="skills-icons centered">
                     <i class="devicon-html5-plain colored"></i>
                     <i class="devicon-css3-plain colored"></i>
                     <i class="devicon-javascript-plain colored"></i>
                     <i class="devicon-cplusplus-plain colored"></i>
                     <i class="devicon-python-plain colored"></i>
-                </div>
-                <p>
-                    I specialize in creating efficient, scalable solutions using technologies like HTML, CSS, JavaScript, C++, and Python.
-                    I'm committed to continuous learning, keeping up with the latest advancements in web development and software engineering.
-                </p>
-                <h3>Spoken Languages</h3>
-                <p>
+                  </div>
+              
+                  <h3>Spoken Languages</h3>
+                  <p>
                     I'm fluent in English and Portuguese, and I speak Spanish at a conversational level.
-                    This multilingual ability helps me collaborate effectively with teams and clients across diverse backgrounds
-                </p>
-                <h3>What Drives Me</h3>
-                <p>
-                    Problem-solving and innovation are at the heart of my work. 
-                    I'm passionate about building projects that not only demonstrate technical skill but also deliver meaningful solutions.
-                </p>
-                <h3>Currently</h3>
-                <p>
-                    I'm actively expanding my portfolio with new projects, sharpening my skills every day, and working toward joining an industry-leading tech company.  
-                </p>
-                <div class="about-buttons">
+                    This multilingual ability helps me collaborate effectively with teams and clients across diverse backgrounds.
+                  </p>
+              
+                  <h3>My Mission</h3>
+                  <p>
+                    I’m passionate about building software that solves real problems.
+                    Whether working solo or in a team, I thrive on challenge, innovation, and delivering code that matters.
+                    Right now, I’m growing my portfolio, sharpening my skills daily, and working toward joining an industry-leading tech company.
+                  </p>
+              
+                  <h3>Work Ethic</h3>
+                  <ul class="about-values">
+                    <li>⚙ Continuous improvement</li>
+                    <li>💡 Simplicity over complexity</li>
+                    <li>🧠 Clear thinking & communication</li>
+                    <li>🤝 Collaborative growth</li>
+                  </ul>
+              
+                  <div class="about-buttons">
                     <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
                     <button class="linksButton"><i class="devicon-github-original"></i></button>
+                  </div>
                 </div>
-            </section>
+              </section>
+              
 
             <!-- #projects: Projects showcase -->
             <section id="projects">
                 <h2>Projects</h2>
-                <div class="carousel-container">
-                    
-                    <!-- Card Slide button right -->
-                    <button class="slide-button left">&#9664;</button> <!-- ◀️ -->            
-                    
-                    <div class="carousel">
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="Images/project_Portfolio.png" alt="Illustration of Website Project">
-                                <h3>Portfolio Website</h3>
-                                <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="Images/project_SmartCalculator.png" alt="Illustration of Calculator Project"> <!-- Include pictures here later-->
-                                <h3>"Smart" Calculator</h3>
-                                <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
 
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
+                <!-- Grid container for cards -->
+                <div id="project-grid" class="project-grid collapsed">
 
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
-
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
-
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
-
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
-
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="" alt=""> <!-- Include pictures here later-->
-                                <h3>Projects</h3>
-                                <p>TBD</p>
-                            </div>
-                        </div>
+                    <!-- Project Cards -->
+                    <div class="card">
+                        <img src="Images/project_Portfolio.png" alt="Illustration of Website Project">
+                        <h3>Portfolio Website</h3>
+                        <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
                     </div>
 
-                    <!-- Card Slide button right -->
-                    <button class="slide-button right">&#9654;</button> <!-- ▶️ -->
+                    <div class="card">
+                        <img src="Images/project_SmartCalculator.png" alt="Illustration of Calculator Project">
+                        <h3>"Smart" Calculator</h3>
+                        <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                    </div>
 
-                    <button id="all-projects" class="btn">View All Projects</button>
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="" alt="">
+                        <h3>Projects</h3>
+                        <p>TBD</p>
+                    </div>
+
                 </div>
+
+                <!-- Toggle button to expand/collapse grid -->
+                <button id="toggle-projects" class="btn">View All Projects</button>
             </section>
-            
+
             <!-- #contact: Contact form section -->
             <section id="contact">
                 <h2>Contact</h2>
