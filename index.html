@@ -1,213 +1,212 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Ensure IE uses latest rendering engine -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Ensures compatibility with Internet Explorer's latest rendering engine -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <title>Gus A. | Full-Stack Web Dev</title>
-        
-        <!-- Favicon (tab icon) - Uncomment and add an image in /images/ as favicon.ico -->
-        <!-- <link rel="icon" type="image/x-icon" href="/images/favicon.ico"> -->
+  <title>Gus A. Portfolio</title>
 
-        <!-- Meta description for SEO -->
-        <meta name="description" content="Gus's portfolio - Showcasing my projects, skills, and experience in software development, JavaScript, C++, Python, and more.">
+  <!-- ----------  Basic SEO  ---------- -->
+  <meta name="description"
+        content="Gus's portfolio – projects, skills and experience in full‑stack development (HTML, CSS, JavaScript, C++, Python).">
+  <meta property="og:title" content="Gus A. Portfolio">
+  <meta property="og:description" content="Browse my projects and get in touch.">
+  <!--  Replace with a real 1200×630 image once you have one  -->
+  <!-- <meta property="og:image" content="https://gus-a.dev/assets/og-cover.png"> -->
+  <meta property="og:type"  content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
-        <!-- Responsive design: Ensures proper scaling on different screen sizes -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Link to external CSS stylesheet -->
-        <link rel="stylesheet" href="styles.css">
-        
-        <!-- Google Font: Tektur -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap" rel="stylesheet">
+  <!-- ----------  Responsive  ---------- -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Devicon's Icons-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- ----------  Styles & Fonts  ---------- -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+</head>
+<body>
 
-    </head>
-    <body>
+<!-- PAGE WRAPPER -->
+<div id="container">
 
-        <!-- #container: Wraps all content for better layout control -->
-        <div id="container">
+  <!-- HERO -->
+  <header id="hero">
+    <h1 class="tektur-title">
+      Hello there! I'm <span class="highlight">Gus</span>, a full‑stack web developer.
+    </h1>
 
-            <!-- #hero: Hero section / introductory banner -->
-            <header id="hero">
-                <h1 class="tektur-title">
-                    Hello there! I'm <span class="highlight">Gus</span>, a full-stack web developer.
-                </h1>
-                <!-- Button to scroll to the "Projects" section -->
-                <button id="scroll-button" class="btn">View My Work</button>
-                <!-- Button to toggle between light and dark mode -->
-                <button id="theme-toggle" class="btn">🌞</button>
-                <!-- (Future Improvement) Replace emoji with an animated icon -->
-            </header>
+    <button id="scroll-button" class="btn">View My Work</button>
+    <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
+  </header>
 
-            <!-- #navbar: Sticky navigation bar -->
-            <nav id="navbar" class="hidden">
-                <!-- Navigation links to page sections -->
-                <a href="#home" class="nav-item">Home</a>
-                <a href="#about" class="nav-item">About</a>
-                <a href="#projects" class="nav-item">Projects</a>
-                <a href="#contact" class="nav-item">Contact</a>
-                <!-- (Future Improvement) Replace text with icons/images for better UX -->
-            </nav>
+  <!-- NAV -->
+  <nav id="navbar" class="hidden" aria-label="Site">
+    <a href="#hero"     class="nav-item">Home</a>
+    <a href="#about"    class="nav-item">About</a>
+    <a href="#projects" class="nav-item">Projects</a>
+    <a href="#contact"  class="nav-item">Contact</a>
+  </nav>
 
-            <!-- #about: About Me section -->
-            <section id="about">
-                <div class="about-content">
-                  <h2>About Me</h2>
-              
-                  <h3>Introduction</h3>
-                  <p>
-                    Hi, I'm Gus — a passionate full-stack developer based in the UK. I graduated with a 2:1 degree in Computer Science from the University of Greenwich (Class of 2024) and have built a strong foundation in modern software development.
-                  </p>
-              
-                  <h3>My Skills</h3>
-                  <p>
-                    I specialize in creating efficient, scalable solutions using technologies like HTML, CSS, JavaScript, C++, and Python.
-                    I'm committed to continuous learning, keeping up with the latest advancements in web development and software engineering.
-                  </p>
-                  <div class="skills-icons centered">
-                    <i class="devicon-html5-plain colored"></i>
-                    <i class="devicon-css3-plain colored"></i>
-                    <i class="devicon-javascript-plain colored"></i>
-                    <i class="devicon-cplusplus-plain colored"></i>
-                    <i class="devicon-python-plain colored"></i>
-                  </div>
-              
-                  <h3>Spoken Languages</h3>
-                  <p>
-                    I'm fluent in English and Portuguese, and I speak Spanish at a conversational level.
-                    This multilingual ability helps me collaborate effectively with teams and clients across diverse backgrounds.
-                  </p>
-              
-                  <h3>My Mission</h3>
-                  <p>
-                    I’m passionate about building software that solves real problems.
-                    Whether working solo or in a team, I thrive on challenge, innovation, and delivering code that matters.
-                    Right now, I’m growing my portfolio, sharpening my skills daily, and working toward joining an industry-leading tech company.
-                  </p>
-              
-                  <h3>Work Ethic</h3>
-                  <ul class="about-values">
-                    <li>⚙ Continuous improvement</li>
-                    <li>💡 Simplicity over complexity</li>
-                    <li>🧠 Clear thinking & communication</li>
-                    <li>🤝 Collaborative growth</li>
-                  </ul>
-              
-                  <div class="about-social">
-                    <p class="social-label">Find me at:</p>
-                    <div class="about-buttons">
-                        <!-- LinkedIn -->
-                        <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/" target="_blank" rel="noopener noreferrer">
-                            <i class="devicon-linkedin-plain colored"></i>
-                        </a>
-                        <!-- GitHub -->
-                        <a class="linksButton" href="https://github.com/Antonelli12" target="_blank" rel="noopener noreferrer">
-                            <i class="devicon-github-original"></i>
-                        </a>
-                    </div>
-                  </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-content">
+      <h2>About Me</h2>
 
-                </div>
-              </section>
-              
-            <!-- #projects: Projects showcase -->
-            <section id="projects">
-                <h2>Projects</h2>
+      <h3>Introduction</h3>
+      <p>
+        Hi, I'm Gus — a passionate full‑stack developer based in the UK. I graduated
+        with a 2:1 in Computer Science from the University of Greenwich (2024) and
+        have built a strong foundation in modern software development.
+      </p>
 
-                <!-- Grid container for cards -->
-                <div id="project-grid" class="project-grid collapsed">
+      <h3>My Skills</h3>
+      <p>
+        I specialize in creating efficient, scalable solutions using HTML, CSS,
+        JavaScript, C++, and Python. I'm committed to continuous learning and
+        keeping up with the latest advancements in web development.
+      </p>
 
-                    <!-- Portfolio Website -->
-                    <a href="https://github.com/Antonelli12/PersonalPortfolioWebsite" target="_blank" class="card-link">
-                        <div class="card">
-                            <img src="assets/portfolio_website.png" alt="Screenshot of portfolio website">
-                            <h3>Portfolio Website</h3>
-                            <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
-                        </div>
-                    </a>
+      <div class="skills-icons centered" aria-label="Primary skill set">
+        <i class="devicon-html5-plain colored"   aria-hidden="true"></i>
+        <i class="devicon-css3-plain colored"    aria-hidden="true"></i>
+        <i class="devicon-javascript-plain colored" aria-hidden="true"></i>
+        <i class="devicon-cplusplus-plain colored"  aria-hidden="true"></i>
+        <i class="devicon-python-plain colored"     aria-hidden="true"></i>
+      </div>
 
-                    <!-- Smart Calculator -->
-                    <a href="https://github.com/Antonelli12/JS-Smart-Calculator" target="_blank" class="card-link">
-                        <div class="card">
-                            <img src="assets/smart_calculator.png" alt="Screenshot of JavaScript calculator">
-                            <h3>"Smart" Calculator</h3>
-                            <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
-                        </div>
-                    </a>
+      <h3>Spoken Languages</h3>
+      <p>
+        I'm fluent in English and Portuguese, and I speak Spanish at a conversational level.
+        This multilingual ability helps me collaborate effectively across diverse teams.
+      </p>
 
-                    <!-- Coming Soon cards -->
-                    <div class="card coming-soon">
-                        <img src="assets/undraw_under-construction_c2y1.svg" alt="Coming soon construction illustration">
-                        <h3>Coming Soon!</h3>
-                        <p>Stay tuned — a new project is in progress.</p>
-                    </div>
+      <h3>My Mission</h3>
+      <p>
+        I’m passionate about building software that solves real problems.
+        Whether working solo or in a team, I thrive on challenge, innovation,
+        and delivering code that matters.
+      </p>
 
-                    <div class="card coming-soon">
-                        <img src="assets/undraw_under-construction_c2y1.svg" alt="Coming soon construction illustration">
-                        <h3>Coming Soon!</h3>
-                        <p>Stay tuned — a new project is in progress.</p>
-                    </div>
+      <h3>Work Ethic</h3>
+      <ul class="about-values">
+        <li>⚙ Continuous improvement</li>
+        <li>💡 Simplicity over complexity</li>
+        <li>🧠 Clear thinking & communication</li>
+        <li>🤝 Collaborative growth</li>
+      </ul>
 
-                    <div class="card coming-soon">
-                        <img src="assets/undraw_under-construction_c2y1.svg" alt="Coming soon construction illustration">
-                        <h3>Coming Soon!</h3>
-                        <p>Stay tuned — a new project is in progress.</p>
-                    </div>
+      <div class="about-social">
+        <p class="social-label">Find me at:</p>
+        <div class="about-buttons">
+          <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/"
+             target="_blank" rel="noopener" aria-label="LinkedIn profile">
+            <i class="devicon-linkedin-plain colored" aria-hidden="true"></i>
+          </a>
+          <a class="linksButton" href="https://github.com/Antonelli12"
+             target="_blank" rel="noopener" aria-label="GitHub profile">
+            <i class="devicon-github-original" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-                <!-- Toggle button to expand/collapse grid -->
-                <button id="toggle-projects" class="btn">Expand View</button>
-            </section>
+    <div id="project-grid" class="project-grid collapsed">
+      <!-- Project 1 -->
+      <a href="https://github.com/Antonelli12/PersonalPortfolioWebsite"
+         target="_blank" class="card-link">
+        <div class="card">
+          <img src="assets/portfolio_website.png"
+               alt="Screenshot of this personal portfolio website" loading="lazy">
+          <h3>Portfolio Website</h3>
+          <p>The very site you're browsing, built from scratch with core web tech.</p>
+        </div>
+      </a>
 
-            <!-- #contact: Contact form section -->
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>
-                Liked what you saw? Want to work together?<br>
-                Send me any comments or questions using the form below — I’ll get back to you as soon as possible.
-                </p>
-            
-                <!-- Contact form -->
-                <form id="contact-form">
-                    <input type="text" name="name" required placeholder="Name">
-                    <input type="email" name="email" required placeholder="Email">
-                    <textarea name="message" required placeholder="Your message"></textarea>
-                    <button id="submit" type="submit">Submit</button>
+      <!-- Project 2 -->
+      <a href="https://github.com/Antonelli12/JS-Smart-Calculator"
+         target="_blank" class="card-link">
+        <div class="card">
+          <img src="assets/smart_calculator.png"
+               alt="Screenshot of the JavaScript Smart Calculator" loading="lazy">
+          <h3>"Smart" Calculator</h3>
+          <p>A small, elegant JS calculator with an interactive UI.</p>
+        </div>
+      </a>
 
-                    <!-- Success Message -->
-                    <p id="form-feedback" style="display: none; color: var(--highlight-color); margin-top: 1rem;">
-                        Thank you for the message! I’ll get back to you as soon as I can.
-                    </p>
-                </form>
+      <!-- Placeholders -->
+      <div class="card coming-soon">
+        <img src="assets/undraw_under-construction_c2y1.svg"
+             alt="" role="presentation" loading="lazy">
+        <h3>Coming Soon!</h3>
+        <p>Stay tuned — a new project is in progress.</p>
+      </div>
 
-            </section>
-        </div> <!-- End of #container -->
+      <div class="card coming-soon">
+        <img src="assets/undraw_under-construction_c2y1.svg"
+             alt="" role="presentation" loading="lazy">
+        <h3>Coming Soon!</h3>
+        <p>Stay tuned — a new project is in progress.</p>
+      </div>
 
-        <!-- Footer section -->
-        <footer id="footer">
-            <div class="footer-buttons">
-                <!-- LinkedIn -->
-                <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/" target="_blank" rel="noopener noreferrer">
-                    <i class="devicon-linkedin-plain colored"></i>
-                </a>
-                
-                <!-- GitHub -->
-                <a class="linksButton" href="https://github.com/Antonelli12" target="_blank" rel="noopener noreferrer">
-                    <i class="devicon-github-original"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Gus A. All rights reserved.</p>
-        </footer>
+      <div class="card coming-soon">
+        <img src="assets/undraw_under-construction_c2y1.svg"
+             alt="" role="presentation" loading="lazy">
+        <h3>Coming Soon!</h3>
+        <p>Stay tuned — a new project is in progress.</p>
+      </div>
+    </div>
 
-        <!-- Link to JavaScript file -->
-        <script src="script.js" async defer></script>
-    </body>
-</html> 
+    <button id="toggle-projects" class="btn"
+            aria-expanded="false">Expand View</button>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Liked what you saw? Want to work together? <br>
+      Send me a message and I’ll get back to you as soon as possible.
+    </p>
+
+    <form id="contact-form">
+      <input  type="text"  name="name"    placeholder="Name"    required>
+      <input  type="email" name="email"   placeholder="Email"   required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button id="submit" type="submit">Submit</button>
+
+      <p id="form-feedback" hidden>
+        Thank you for the message! I’ll get back to you soon.
+      </p>
+    </form>
+  </section>
+</div><!-- /#container -->
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-buttons">
+    <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/"
+       target="_blank" rel="noopener" aria-label="LinkedIn profile">
+      <i class="devicon-linkedin-plain colored" aria-hidden="true"></i>
+    </a>
+    <a class="linksButton" href="https://github.com/Antonelli12"
+       target="_blank" rel="noopener" aria-label="GitHub profile">
+      <i class="devicon-github-original" aria-hidden="true"></i>
+    </a>
+  </div>
+  <p>&copy; 2025 Gus A. All rights reserved.</p>
+</footer>
+
+<!-- Main script -->
+<script src="script.js" defer></script>
+</body>
+</html>

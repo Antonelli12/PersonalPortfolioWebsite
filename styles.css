@@ -43,9 +43,8 @@ body {
 }
 
 section{
-    max-width: 80%;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px min(4vw, 20px);
 }
 
 #container{
@@ -228,7 +227,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     margin-top: 0.5rem;
 }
 
-/* Subheadings (e.g., Introduction, My Skills) - aligned left */
 #about h3 {
     text-align: left;
     margin-top: 2rem;
@@ -239,11 +237,10 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     padding-bottom: 0.3rem;
 }
 
-/* General Paragraph Styling - centered */
 #about p {
-    max-width: 800px;
-    margin: 0 auto 1.2rem auto;
-    text-align: center;
+    margin: 0 0 1.2rem 0;
+    text-align: justify;
+    text-align-last: center;
     line-height: 1.6;
 }
 
@@ -304,6 +301,8 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     font-weight: 500;
     color: var(--text-color);
     font-family: "Tektur", sans-serif;
+    text-align: center; 
+    width: 100%;
 }
 
 /* Social Button Styles */
@@ -326,7 +325,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 
-
 /*=============================
   Project Grid Layout
 =============================*/
@@ -337,12 +335,12 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 /* Main grid container */
-.project-grid {
+.project-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    row-gap: 3rem;        
-    column-gap: 2rem;     
-    padding: 1rem 0 3rem 0;
+    column-gap: 2rem;
+    row-gap: 3rem;       
+    padding: 1rem 0 3rem;
     overflow: visible;
     justify-items: center;
 }
@@ -374,18 +372,17 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 /* Card Styles */
-.card {
+.card{
     background-color: var(--card-background);
     padding: 1rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-align: center;
     opacity: 0.9;
     transform: scale(1);
     transition: transform 0.3s ease, opacity 0.3s ease;
     border: 2px solid transparent;
     height: 100%;
-    margin-bottom: 2rem; /* 👈 Fix spacing between rows */
 }
 
 .card:hover {
@@ -417,6 +414,12 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     filter: grayscale(0) brightness(1.05);
     opacity: 1;
 }
+
+/* Hide cards 5‑N when collapsed */
+.project-grid.collapsed > *:nth-child(n+5) { display: none; }
+
+/* Show everything when expanded */
+.project-grid.expanded  > *               { display: block; }
 
 /* Expand/Collapse Button */
 #toggle-projects {

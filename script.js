@@ -1,91 +1,100 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // === Element Selectors ===
-    const themeToggle = document.getElementById("theme-toggle");
-    const scrollButton = document.getElementById("scroll-button");
-    const homeLink = document.querySelector("a[href='#home']");
-    const aboutSection = document.getElementById("about");
-    const heroSection = document.getElementById("hero");
-    const navBar = document.getElementById("navbar");
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("#navbar a");
-    const form = document.querySelector('#contact-form');
-    const feedback = document.getElementById('form-feedback');
+document.addEventListener('DOMContentLoaded', () => {
+    /* ----------  DOM references  ---------- */
+    const themeToggle  = document.getElementById('theme-toggle');
+    const scrollBtn    = document.getElementById('scroll-button');
+    const heroSection  = document.getElementById('hero');
+    const homeLink     = document.querySelector("a[href='#hero']");  
+    const aboutSection = document.getElementById('about');
+    const navBar       = document.getElementById('navbar');
+    const navLinks     = document.querySelectorAll('#navbar .nav-item');
 
-    // === Theme Toggle (Dark / Light Mode) ===
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        themeToggle.innerText = document.body.classList.contains("light-mode") ? "🌙" : "🌞";
+  
+    const sections = [heroSection, ...document.querySelectorAll('section')]; 
+  
+    const projectGrid = document.getElementById('project-grid');
+    const toggleBtn   = document.getElementById('toggle-projects');
+  
+    const form        = document.getElementById('contact-form');
+    const feedback    = document.getElementById('form-feedback');
+  
+  
+    /* ---------- 1. Theme toggle (🌞 ↔ 🌙) ---------- */
+    themeToggle?.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      themeToggle.textContent =
+        document.body.classList.contains('light-mode') ? '🌙' : '🌞';
     });
-
-    // === Smooth Scrolling Handlers ===
-    scrollButton?.addEventListener("click", () => {
-        aboutSection.scrollIntoView({ behavior: "smooth" });
+  
+  
+    /* ---------- 2. Smooth‑scroll helpers ---------- */
+    scrollBtn?.addEventListener('click', () => {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     });
-
-    homeLink?.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+  
+    homeLink?.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    // === Navbar Scroll Behavior ===
-    window.addEventListener("scroll", () => {
-        let currentSectionId = "";
+  
+  
+    /* ---------- 3. Navbar Visibility + Active Section ---------- */
+    window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const scrollBottom = scrollY + windowHeight;
-
+        const viewportHeight = window.innerHeight;
+        const scrollBottom = scrollY + viewportHeight;
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-
-        // Show/hide navbar when passing hero section by a better threshold
-        if (scrollY > heroBottom - 150) {
-            navBar.classList.add("show");
-            navBar.classList.remove("hidden");
+      
+        // === A. Navbar appears slightly earlier ===
+        if (scrollY > heroBottom - viewportHeight / 2) {
+          navBar.classList.add('show');
+          navBar.classList.remove('hidden');
         } else {
-            navBar.classList.remove("show");
-            navBar.classList.add("hidden");
+          navBar.classList.remove('show');
+          navBar.classList.add('hidden');
         }
-
-        // Detect current visible section or scroll bottom edge
+      
+        // === B. Track visible section accurately ===
+        let currentId = 'hero'; // default
+      
         sections.forEach((section) => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-
-            // Regular logic OR if near the bottom of the page
-            if (scrollY >= top - 100 || (scrollBottom >= document.body.scrollHeight - 5 && section.id === "contact")) {
-                currentSectionId = section.getAttribute("id");
-            }
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+      
+          const isInView =
+            scrollY >= top - 200 && scrollY < top + height - 200;
+      
+          const atBottom =
+            scrollBottom >= document.body.scrollHeight - 5 && section.id === 'contact';
+      
+          if (isInView || atBottom) {
+            currentId = section.id;
+          }
         });
-
-        // Apply active class to navbar items
-        navLinks.forEach(link => {
-            link.classList.toggle("active", link.getAttribute("href").includes(currentSectionId));
+      
+        // === C. Highlight active nav link ===
+        navLinks.forEach((link) => {
+          const linkTarget = link.getAttribute('href')?.replace('#', '');
+          link.classList.toggle('active', linkTarget === currentId);
         });
+      });
+      
+  
+    /* ---------- 4. Project grid Expand / Collapse ---------- */
+    toggleBtn?.addEventListener('click', () => {
+      const expanded = projectGrid.classList.toggle('expanded');
+      projectGrid.classList.toggle('collapsed', !expanded);
+  
+      toggleBtn.textContent = expanded ? 'Collapse View' : 'Expand View';
     });
-
-    // === Project Grid Expand/Collapse Logic ===
-    const projectGrid = document.getElementById("project-grid");
-    const toggleBtn = document.getElementById("toggle-projects");
-
-    toggleBtn?.addEventListener("click", () => {
-        const isExpanded = projectGrid.classList.contains("expanded");
-
-        // Toggle class to expand/collapse the grid
-        projectGrid.classList.toggle("expanded", !isExpanded);
-        projectGrid.classList.toggle("collapsed", isExpanded);
-
-        // Toggle button label
-        toggleBtn.textContent = isExpanded ? "Expand View" : "Collapse View";
+    /* (duplicate listener removed) */
+  
+  
+    /* ---------- 5. Contact‑form submission ---------- */
+    form?.addEventListener('submit', e => {
+      feedback.style.display = 'block';    
+      form.reset();                        
+  
+      setTimeout(() => (feedback.style.display = 'none'), 4000);
     });
-
-    // === Contact Form Submission Feedback ===
-    form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent real submission for now
-        feedback.style.display = 'block';
-        form.reset();
-
-        // Hide after 4 seconds
-        setTimeout(() => {
-            feedback.style.display = 'none';
-        }, 4000);
-    });
-});
+  });
+  
