@@ -58,10 +58,25 @@ section{
     text-align: center;
 }
 
+h2 {
+    font-family: "Tektur", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-family: "Tektur", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
 
 button, .linksButton, #submit, #all-projects {
-    font-family: inherit;
-    font-size: 1rem;
+    font-family:  "Tektur", sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     border: 2px solid var(--highlight-color);
     border-radius: 5px;
     background: transparent;
@@ -78,6 +93,9 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     color: var(--background-color);
 }
 
+.about-buttons .linksButton, .footer-buttons .linksButton {
+    text-decoration: none;
+}
 
 /*=============================
   Typography & Highlights
@@ -201,13 +219,13 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 .about-content {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 20px 1rem 0 1rem;
 }
 
-/* Main Section Title */
 #about h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 /* Subheadings (e.g., Introduction, My Skills) - aligned left */
@@ -272,7 +290,20 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.about-social {
     margin-top: 2rem;
+    text-align: center;
+}
+
+.social-label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-family: "Tektur", sans-serif;
 }
 
 /* Social Button Styles */
@@ -355,6 +386,17 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     margin: 10px 0;
 }
 
+.card.coming-soon {
+    opacity: 0.75;
+    filter: grayscale(0.3);
+    border-style: dashed;
+}
+
+.card.coming-soon:hover {
+    filter: grayscale(0) brightness(1.05);
+    opacity: 1;
+}
+
 /* Button spacing */
 #toggle-projects {
     margin-top: 2rem;
@@ -374,46 +416,62 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 /*=============================
-  Contact Form
+  Contact Section
 =============================*/
 
-/* Center and constrain the form */
+#contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+
+#contact p {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Contact Form */
 #contact form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
 }
 
-#contact h2 {
-    text-align: center;
-}
-
-/* Inputs and textarea styles */
-form input, form textarea {
+/* Input fields */
+#contact input,
+#contact textarea {
     width: 100%;
     max-width: 500px;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid var(--highlight-color);
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: var(--input-bg-color);
     color: var(--text-color);
     font-size: 1rem;
-    display: block;
-    transition: border 0.3s ease, background-color 0.3s ease;
-    font-family: inherit;
+    transition: border 0.3s ease;
 }
 
-/* Placeholder styling */
-form input::placeholder, form textarea::placeholder {
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 2px rgba(0, 174, 219, 0.4);
+}
+
+/* Placeholder */
+#contact input::placeholder,
+#contact textarea::placeholder {
     color: var(--highlight-color);
     opacity: 0.7;
 }
 
-
+  
 /*=============================
   Footer
 =============================*/
@@ -458,7 +516,7 @@ form input::placeholder, form textarea::placeholder {
 
 /*Delete it later --------------------------------------------------------------------*/
 #about, #projects, #contact {
-    padding-bottom: 300px;
+    padding-bottom: 15vh;
 }
 
 

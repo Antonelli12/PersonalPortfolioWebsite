@@ -100,14 +100,23 @@
                     <li>🤝 Collaborative growth</li>
                   </ul>
               
-                  <div class="about-buttons">
-                    <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
-                    <button class="linksButton"><i class="devicon-github-original"></i></button>
+                  <div class="about-social">
+                    <p class="social-label">Find me at:</p>
+                    <div class="about-buttons">
+                        <!-- LinkedIn -->
+                        <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/" target="_blank" rel="noopener noreferrer">
+                            <i class="devicon-linkedin-plain colored"></i>
+                        </a>
+                        <!-- GitHub -->
+                        <a class="linksButton" href="https://github.com/Antonelli12" target="_blank" rel="noopener noreferrer">
+                            <i class="devicon-github-original"></i>
+                        </a>
+                    </div>
                   </div>
+
                 </div>
               </section>
               
-
             <!-- #projects: Projects showcase -->
             <section id="projects">
                 <h2>Projects</h2>
@@ -116,82 +125,103 @@
                 <div id="project-grid" class="project-grid collapsed">
 
                     <!-- Project Cards -->
-                    <div class="card">
-                        <img src="Images/project_Portfolio.png" alt="Illustration of Website Project">
-                        <h3>Portfolio Website</h3>
-                        <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
+
+                    <a href="https://github.com/Antonelli12/PersonalPortfolioWebsite" target="_blank" rel="noopener noreferrer" class="card-link">
+                        <div class="card">
+                            <img src="Images/project_Portfolio.png" alt="Illustration of Website Project">
+                            <h3>Portfolio Website</h3>
+                            <p>The website you are currently viewing. Built from scratch using core web technologies.</p>
+                        </div>
+                        </a>
+
+                        <!-- Smart Calculator Card -->
+                        <a href="https://github.com/Antonelli12/JS-Smart-Calculator" target="_blank" rel="noopener noreferrer" class="card-link">
+                        <div class="card">
+                            <img src="Images/project_SmartCalculator.png" alt="Illustration of Calculator Project">
+                            <h3>"Smart" Calculator</h3>
+                            <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                        </div>
+                    </a>
+
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
+                    </div>
+                    
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
                     </div>
 
-                    <div class="card">
-                        <img src="Images/project_SmartCalculator.png" alt="Illustration of Calculator Project">
-                        <h3>"Smart" Calculator</h3>
-                        <p>A simple yet elegant JavaScript-based calculator with an interactive UI.</p>
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
                     </div>
 
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
                     </div>
 
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
                     </div>
 
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
+                    <div class="card coming-soon">
+                        <img src="Undraw_Images/undraw_under-construction_c2y1.svg" alt="Coming Soon Illustration">
+                        <h3>Coming Soon!</h3>
+                        <p>Stay tuned — a new project is in progress.</p>
                     </div>
-
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
-                    </div>
-
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
-                    </div>
-
-                    <div class="card">
-                        <img src="" alt="">
-                        <h3>Projects</h3>
-                        <p>TBD</p>
-                    </div>
+                    
 
                 </div>
 
                 <!-- Toggle button to expand/collapse grid -->
-                <button id="toggle-projects" class="btn">View All Projects</button>
+                <button id="toggle-projects" class="btn">Expand View</button>
             </section>
 
             <!-- #contact: Contact form section -->
             <section id="contact">
                 <h2>Contact</h2>
                 <p>
-                    Liked what you saw? Want to work together? Send me any comments and questions by filling out the form below! <br> I will get back to you as soon as possible.
+                Liked what you saw? Want to work together?<br>
+                Send me any comments or questions using the form below — I’ll get back to you as soon as possible.
                 </p>
-                
+            
                 <!-- Contact form -->
-                <form>
-                    <input type="text" id="user-name" name="user-name" required placeholder="Name">                
-                    <input type="email" id="user-email" name="user-email" required placeholder="Email">                    
-                    <textarea id="user-message" name="user-message" required placeholder="Your message"></textarea>
-                    <input id="submit" type="submit" value="Submit">
+                <form id="contact-form">
+                    <input type="text" name="name" required placeholder="Name">
+                    <input type="email" name="email" required placeholder="Email">
+                    <textarea name="message" required placeholder="Your message"></textarea>
+                    <button id="submit" type="submit">Submit</button>
+
+                    <!-- Success Message -->
+                    <p id="form-feedback" style="display: none; color: var(--highlight-color); margin-top: 1rem;">
+                        Thank you for the message! I’ll get back to you as soon as I can.
+                    </p>
                 </form>
+
             </section>
         </div> <!-- End of #container -->
 
         <!-- Footer section -->
         <footer id="footer">
             <div class="footer-buttons">
-                <button class="linksButton"><i class="devicon-linkedin-plain colored"></i></button>
-                <button class="linksButton"><i class="devicon-github-original colored"></i></button>
+                <!-- LinkedIn -->
+                <a class="linksButton" href="https://www.linkedin.com/in/gus-r-antonelli/" target="_blank" rel="noopener noreferrer">
+                    <i class="devicon-linkedin-plain colored"></i>
+                </a>
+                
+                <!-- GitHub -->
+                <a class="linksButton" href="https://github.com/Antonelli12" target="_blank" rel="noopener noreferrer">
+                    <i class="devicon-github-original"></i>
+                </a>
             </div>
             <p>&copy; 2025 Gus A. All rights reserved.</p>
         </footer>
@@ -199,4 +229,4 @@
         <!-- Link to JavaScript file -->
         <script src="script.js" async defer></script>
     </body>
-</html>
+</html> 
