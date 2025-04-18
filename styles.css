@@ -55,6 +55,7 @@ section{
 
 #container p {
     text-align: center;
+    font-size: large;
 }
 
 h2 {
@@ -70,6 +71,7 @@ h3 {
     font-weight: 500;
     font-size: 1.2rem;
 }
+
 
 button, .linksButton, #submit, #all-projects {
     font-family:  "Tektur", sans-serif;
@@ -278,7 +280,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 .about-values li {
-    font-size: 1rem;
+    font-size: large;
     white-space: nowrap;
 }
 
@@ -324,6 +326,11 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     fill: #ffffff !important;
 }
 
+.light-mode .devicon-github-original {
+    color: #000000 !important;
+    fill: #000000 !important;
+  }
+  
 
 /*=============================
   Project Grid Layout
@@ -454,7 +461,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     max-width: 700px;
     margin: 0 auto 2rem auto;
     line-height: 1.6;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 }
 
 /* Contact Form */
@@ -480,6 +487,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     color: var(--text-color);
     font-size: 1rem;
     transition: border 0.3s ease;
+    font-family: "Tektur", sans-serif;
 }
 
 #contact input:focus,
