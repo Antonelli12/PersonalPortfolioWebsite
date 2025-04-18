@@ -340,19 +340,37 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    padding: 1rem 0 3rem 0; /* Top/bottom spacing */
-    overflow: visible; /* Avoid clipping for scaled items */
+    row-gap: 3rem;        
+    column-gap: 2rem;     
+    padding: 1rem 0 3rem 0;
+    overflow: visible;
+    justify-items: center;
 }
 
-/* Hide all but first 4 cards when collapsed */
-.project-grid.collapsed .card:nth-child(n+5) {
+
+/* Hide all but first 4 items when collapsed */
+.project-grid.collapsed > *:nth-child(n+5) {
     display: none;
 }
 
-/* Show all cards when expanded */
-.project-grid.expanded .card {
+/* Show all items when expanded */
+.project-grid.expanded > * {
     display: block;
+}
+
+/* Card anchor wrapper */
+.card-link {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect on card wrapper */
+.card-link:hover {
+    transform: scale(1.01);
 }
 
 /* Card Styles */
@@ -366,6 +384,8 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     transform: scale(1);
     transition: transform 0.3s ease, opacity 0.3s ease;
     border: 2px solid transparent;
+    height: 100%;
+    margin-bottom: 2rem; /* 👈 Fix spacing between rows */
 }
 
 .card:hover {
@@ -386,6 +406,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     margin: 10px 0;
 }
 
+/* Coming Soon Styling */
 .card.coming-soon {
     opacity: 0.75;
     filter: grayscale(0.3);
@@ -397,12 +418,12 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     opacity: 1;
 }
 
-/* Button spacing */
+/* Expand/Collapse Button */
 #toggle-projects {
     margin-top: 2rem;
 }
 
-/* Responsive grid for smaller screens */
+/* Responsive Layout */
 @media (max-width: 1024px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -414,6 +435,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
         grid-template-columns: 1fr;
     }
 }
+
 
 /*=============================
   Contact Section
