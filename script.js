@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedback    = document.getElementById('form-feedback');
   
   
-    /* ---------- 1. Theme toggle (🌞 ↔ 🌙) ---------- */
+    /* ---------- Theme toggle (🌞 ↔ 🌙) ---------- */
     themeToggle?.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
       themeToggle.textContent =
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   
-    /* ---------- 2. Smooth‑scroll helpers ---------- */
+    /* ---------- Smooth‑scroll helpers ---------- */
     scrollBtn?.addEventListener('click', () => {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     });
@@ -36,8 +36,159 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   
-  
-    /* ---------- 3. Navbar Visibility + Active Section ---------- */
+    /* ---------- Hero Greeting Phrase Rotation + Typewriter Effect ---------- */
+    // HERO TYPEWRITER EFFECT — animates phrases in the hero headline
+    const normalPhrases = [
+      "an aspiring Red Team Operator.",
+      "on a mission to master offensive security.",
+      "I am building skills to breach any system! ... legally"
+    ];
+
+    const heroLine = document.querySelector("#hero h1");
+    const staticPrefix = `Hello there! I'm <span class="highlight">Gus</span>, `;
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+    let delay = 90;
+    let showCounter = 0;
+    let isKenobi = false;
+    let kenobiState = 0;
+    let currentPhrase = normalPhrases[0];
+    let visible = "";
+
+    function typeWriter() {
+      if (isKenobi) {
+        switch (kenobiState) {
+          case 0: { // Write "Hello there."
+            const text = "Hello there.";
+            visible = text.slice(0, letterIndex);
+            heroLine.innerHTML = `<span id="kenobi-line-1">${visible}</span>`;
+            if (!isDeleting && letterIndex < text.length) {
+              letterIndex++;
+              delay = 90;
+            } else {
+              letterIndex = 0;
+              kenobiState = 1;
+              delay = 1000;
+            }
+            break;
+          }
+
+          case 1: { // Type "General Kenobi." under it
+            const text = "General Kenobi.";
+            visible = text.slice(0, letterIndex);
+            const typedHTML = visible.replace("Kenobi", `<span class="highlight">Kenobi</span>`);
+            heroLine.innerHTML = `
+              <span id="kenobi-line-1">Hello there.</span><br>
+              <span id="kenobi-line-2">${typedHTML}</span>
+            `;
+            if (!isDeleting && letterIndex < text.length) {
+              letterIndex++;
+              delay = 90;
+            } else {
+              letterIndex = text.length;
+              kenobiState = 2;
+              isDeleting = true;
+              delay = 1500;
+            }
+            break;
+          }
+
+          case 2: { // Delete "General Kenobi."
+            const text = "General Kenobi.";
+            visible = text.slice(0, letterIndex);
+            const typedHTML = visible.replace("Kenobi", `<span class="highlight">Kenobi</span>`);
+            heroLine.innerHTML = `
+              <span id="kenobi-line-1">Hello there.</span><br>
+              <span id="kenobi-line-2">${typedHTML}</span>
+            `;
+            if (letterIndex > 0) {
+              letterIndex--;
+              delay = 40;
+            } else {
+              isDeleting = false;
+              kenobiState = 3;
+              delay = 500;
+            }
+            break;
+          }
+
+          case 3: { // Type "You are a bold one."
+            const text = "You are a bold one.";
+            visible = text.slice(0, letterIndex);
+            const typedHTML = visible.replace("bold", `<span class="highlight">bold</span>`);
+            heroLine.innerHTML = `
+              <span id="kenobi-line-1">Hello there.</span><br>
+              <span id="kenobi-line-2">${typedHTML}</span>
+            `;
+            if (!isDeleting && letterIndex < text.length) {
+              letterIndex++;
+              delay = 90;
+            } else {
+              letterIndex = text.length;
+              kenobiState = 4;
+              delay = 2000;
+            }
+            break;
+          }
+
+          case 4: { // Delete everything
+            heroLine.innerHTML = `<span id="typed-text"></span>`;
+            isKenobi = false;
+            kenobiState = 0;
+            letterIndex = 0;
+            currentPhrase = normalPhrases[phraseIndex];
+            delay = 500;
+            break;
+          }
+        }
+
+        setTimeout(typeWriter, delay);
+        return;
+      }
+
+      // Standard phrase typing
+      visible = currentPhrase.slice(0, letterIndex);
+      heroLine.innerHTML = `${staticPrefix}<span id="typed-text">${visible}</span>`;
+
+      if (!isDeleting && letterIndex < currentPhrase.length) {
+        letterIndex++;
+        delay = visible.endsWith("...") ? 1000 : 90;
+      } else if (isDeleting && letterIndex > 0) {
+        letterIndex--;
+        delay = 40;
+      } else {
+        if (!isDeleting) {
+          isDeleting = true;
+          delay = 2000;
+        } else {
+          isDeleting = false;
+          showCounter++;
+
+          if (showCounter >= 12) {
+            isKenobi = true;
+            kenobiState = 0;
+            letterIndex = 0;
+            showCounter = 0;
+            delay = 600;
+          } else {
+            phraseIndex = (phraseIndex + 1) % normalPhrases.length;
+            currentPhrase = normalPhrases[phraseIndex];
+            letterIndex = 0;
+            delay = 500;
+          }
+        }
+      }
+
+      setTimeout(typeWriter, delay);
+    }
+
+    typeWriter();
+
+
+
+
+    /* ---------- Navbar Visibility + Active Section ---------- */
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const viewportHeight = window.innerHeight;
@@ -79,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       
   
-    /* ---------- 4. Project grid Expand / Collapse ---------- */
+    /* ---------- Project grid Expand / Collapse ---------- */
     toggleBtn?.addEventListener('click', () => {
       const expanded = projectGrid.classList.toggle('expanded');
       projectGrid.classList.toggle('collapsed', !expanded);
@@ -89,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* (duplicate listener removed) */
   
   
-    /* ---------- 5. Contact‑form submission ---------- */
+    /* ---------- Contact‑form submission ---------- */
     form?.addEventListener('submit', e => {
       feedback.style.display = 'block';    
       form.reset();                        

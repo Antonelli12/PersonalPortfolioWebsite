@@ -150,6 +150,18 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     border-color: var(--light-highlight-color);
 }
 
+#typed-text::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  from, to { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+
 
 /*=============================
   Navigation Bar
