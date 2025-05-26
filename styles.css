@@ -42,6 +42,11 @@ body {
     padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%
+}
+
 section{
     margin: 0 auto;
     padding: 40px min(4vw, 20px);
@@ -64,14 +69,20 @@ h2 {
     letter-spacing: 0.5px;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 h3 {
-    font-family: "Tektur", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
+  font-family: "Tektur", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--highlight-color);
+  display: inline-block;
+  padding-bottom: 0.3rem;
 }
-
 
 button, .linksButton, #submit, #all-projects {
     font-family:  "Tektur", sans-serif;
@@ -236,19 +247,8 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 #about h2 {
-    text-align: center;
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
-}
-
-#about h3 {
-    text-align: left;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    font-weight: bold;
-    border-bottom: 2px solid var(--highlight-color);
-    display: inline-block;
-    padding-bottom: 0.3rem;
 }
 
 #about p {
@@ -343,6 +343,72 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     fill: #000000 !important;
   }
   
+
+/*=============================
+  Skills Section
+=============================*/
+#skills {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: var(--background-color);
+}
+
+#skills h2 {
+  margin-bottom: 2rem;
+}
+
+.skills-security, .skills-scripting, .skills-systems {
+  margin-bottom: 3rem;
+}
+
+.skills-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.skill-block {
+  margin-top: 0.4rem;
+  text-align: center;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Tektur", sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.skill-block:hover {
+  transform: scale(1.08);
+}
+
+.skill-block i,
+.skill-block img {
+  font-size: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-block img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.level {
+  display: block;
+  font-size: 0.75rem;
+  color: gray;
+  margin-top: 0.2rem;
+}
+
 
 /*=============================
   Project Grid Layout
@@ -445,19 +511,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     margin-top: 2rem;
 }
 
-/* Responsive Layout */
-@media (max-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 /*=============================
   Contact Section
@@ -551,7 +604,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     color: grey;
     padding: 2rem 1rem;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     max-width: none;
     margin-left: 0;
     margin-right: 0;
@@ -587,22 +640,47 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 /*=============================
   Responsive Design Features
 =============================*/
-@media (max-width: 768px) {
-    #container {
-        padding: 0 1rem;
-    }
 
-    .skills-icons {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .carousel .card {
-        min-width: 100%; /* Show one at a time on small screens */
-    }
-
-    #navbar {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+/* Medium screens */
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
+/* Small screens */
+@media (max-width: 768px) {
+  #container {
+    padding: 0 1rem;
+  }
+
+  .skills-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .carousel .card {
+    min-width: 100%;
+  }
+
+  .skill-block {
+    font-size: 0.85rem;
+  }
+
+  .skill-block i,
+  .skill-block img {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
