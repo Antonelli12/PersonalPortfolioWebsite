@@ -59,7 +59,6 @@ section{
 }
 
 #container p {
-    text-align: center;
     font-size: large;
 }
 
@@ -173,7 +172,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 }
 
 
-
 /*=============================
   Navigation Bar
 =============================*/
@@ -258,28 +256,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     line-height: 1.6;
 }
 
-/* Skill Icons Block */
-.skills-icons {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 1em;
-}
-
-.skills-icons.centered {
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-/* Individual Skill Icon */
-.skills-icons i {
-    font-size: 50px;
-    transition: transform 0.3s ease;
-}
-
-.skills-icons i:hover {
-    transform: scale(1.2);
-}
-
 /* Work Ethic Value List */
 .about-values {
     display: flex;
@@ -332,7 +308,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     transform: scale(1.2);
 }
 
-/* Specific Style for GitHub Icon */
 .about-buttons .devicon-github-original {
     color: #ffffff !important;
     fill: #ffffff !important;
@@ -343,70 +318,61 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     fill: #000000 !important;
   }
   
-
 /*=============================
-  Skills Section
+  Skills
 =============================*/
 #skills {
   padding: 80px 20px;
-  text-align: center;
   background-color: var(--background-color);
 }
 
-#skills h2 {
-  margin-bottom: 2rem;
+.skills-paragraph-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: block; 
+  clear: both;
 }
 
-.skills-security, .skills-scripting, .skills-systems {
-  margin-bottom: 3rem;
+.skills-paragraph {
+  text-align: justify;
+  text-align-last: left;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  max-width: 60ch;
 }
 
-.skills-icons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-.skill-block {
-  margin-top: 0.4rem;
-  text-align: center;
-  line-height: 1.2;
+.icon-cluster {
+  float: right;
+  width: 200px;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
   align-items: center;
-  font-family: "Tektur", sans-serif;
-  font-size: 0.9rem;
-  color: var(--text-color);
-  transition: transform 0.3s ease;
 }
 
-.skill-block:hover {
-  transform: scale(1.08);
+.icon-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
-.skill-block i,
-.skill-block img {
-  font-size: 48px;
-  height: 48px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.skill-block img {
+.icon-row img,
+.icon-row i {
   width: 48px;
   height: 48px;
+  font-size: 48px;
   object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.level {
-  display: block;
-  font-size: 0.75rem;
-  color: gray;
-  margin-top: 0.2rem;
+.icon-row img:hover,
+.icon-row i:hover {
+  transform: scale(1.2);
 }
 
 
@@ -430,13 +396,10 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     justify-items: center;
 }
 
-
-/* Hide all but first 4 items when collapsed */
 .project-grid.collapsed > *:nth-child(n+5) {
     display: none;
 }
 
-/* Show all items when expanded */
 .project-grid.expanded > * {
     display: block;
 }
@@ -451,12 +414,10 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     transition: transform 0.2s ease;
 }
 
-/* Hover effect on card wrapper */
 .card-link:hover {
     transform: scale(1.01);
 }
 
-/* Card Styles */
 .card{
     background-color: var(--card-background);
     padding: 1rem;
@@ -486,9 +447,9 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 
 .card h3 {
     margin: 10px 0;
+    text-align: center;
 }
 
-/* Coming Soon Styling */
 .card.coming-soon {
     opacity: 0.75;
     filter: grayscale(0.3);
@@ -500,13 +461,10 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     opacity: 1;
 }
 
-/* Hide cards 5‑N when collapsed */
 .project-grid.collapsed > *:nth-child(n+5) { display: none; }
 
-/* Show everything when expanded */
 .project-grid.expanded  > *               { display: block; }
 
-/* Expand/Collapse Button */
 #toggle-projects {
     margin-top: 2rem;
 }
@@ -600,16 +558,15 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 =============================*/
 
 #footer {
-    background-color: #121212;
-    color: grey;
-    padding: 2rem 1rem;
-    text-align: center;
-    width: 100%;
-    max-width: none;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 3rem;
-
+  background-color: #121212;
+  color: grey;
+  padding: 2rem 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 3rem auto 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .footer-buttons {
@@ -641,22 +598,37 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
   Responsive Design Features
 =============================*/
 
-/* Medium screens */
+/* Medium screens (tablets, landscape) */
 @media (max-width: 1024px) {
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .skills-paragraph-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-paragraph {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .icon-cluster {
+    float: none;
+    width: auto;
+    margin: 1rem 0 0 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
-/* Small screens */
+/* Small screens (phones) */
 @media (max-width: 768px) {
   #container {
     padding: 0 1rem;
-  }
-
-  .skills-icons {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   #navbar {
@@ -668,19 +640,33 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     min-width: 100%;
   }
 
-  .skill-block {
-    font-size: 0.85rem;
-  }
-
-  .skill-block i,
-  .skill-block img {
-    font-size: 40px;
-    height: 40px;
-    width: 40px;
-  }
-
   .project-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .skills-paragraph-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-paragraph {
+    text-align: center;
+  }
+
+  .icon-cluster {
+    float: none;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0 0 0;
+  }
+
+  .inline-icon {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.25rem;
   }
 }
 
