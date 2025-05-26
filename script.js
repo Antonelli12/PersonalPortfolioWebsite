@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn   = document.getElementById('toggle-projects');
   
     const form        = document.getElementById('contact-form');
-    const feedback    = document.getElementById('form-feedback');
+    const submitBtn   = document.getElementById('submit');
   
   
     /* ---------- Theme toggle (🌞 ↔ 🌙) ---------- */
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     /* ---------- Hero Greeting Phrase Rotation + Typewriter Effect ---------- */
-    // HERO TYPEWRITER EFFECT — animates phrases in the hero headline
     const normalPhrases = [
       "an aspiring Red Team Operator.",
       "on a mission to master offensive security.",
@@ -55,11 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let kenobiState = 0;
     let currentPhrase = normalPhrases[0];
     let visible = "";
-
+    
+    // Easter egg message
     function typeWriter() {
       if (isKenobi) {
         switch (kenobiState) {
-          case 0: { // Write "Hello there."
+          case 0: { // Write 
             const text = "Hello there.";
             visible = text.slice(0, letterIndex);
             heroLine.innerHTML = `<span id="kenobi-line-1">${visible}</span>`;
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           }
 
-          case 1: { // Type "General Kenobi." under it
+          case 1: { // Type
             const text = "General Kenobi.";
             visible = text.slice(0, letterIndex);
             const typedHTML = visible.replace("Kenobi", `<span class="highlight">Kenobi</span>`);
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           }
 
-          case 2: { // Delete "General Kenobi."
+          case 2: { // Delete
             const text = "General Kenobi.";
             visible = text.slice(0, letterIndex);
             const typedHTML = visible.replace("Kenobi", `<span class="highlight">Kenobi</span>`);
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
           }
 
-          case 3: { // Type "You are a bold one."
+          case 3: { // Type 
             const text = "You are a bold one.";
             visible = text.slice(0, letterIndex);
             const typedHTML = visible.replace("bold", `<span class="highlight">bold</span>`);
@@ -186,8 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
     typeWriter();
 
 
-
-
     /* ---------- Navbar Visibility + Active Section ---------- */
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
@@ -205,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       
         // === B. Track visible section accurately ===
-        let currentId = 'hero'; // default
+        let currentId = 'hero'; 
       
         sections.forEach((section) => {
           const top = section.offsetTop;
@@ -237,15 +235,43 @@ document.addEventListener('DOMContentLoaded', () => {
   
       toggleBtn.textContent = expanded ? 'Collapse View' : 'Expand View';
     });
-    /* (duplicate listener removed) */
   
   
     /* ---------- Contact‑form submission ---------- */
-    form?.addEventListener('submit', e => {
-      feedback.style.display = 'block';    
-      form.reset();                        
-  
-      setTimeout(() => (feedback.style.display = 'none'), 4000);
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault(); // Prevent page reload
+
+      // Disable + change button
+      submit.disabled = true;
+      submit.textContent = "✓ Message Sent";
+
+      // Collect form data
+      const formData = new FormData(form);
+
+      // Send data to Formspree
+      try {
+        const response = await fetch("https://formspree.io/f/xqapvgwb", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+          form.reset();
+        } else {
+          submit.textContent = "Error. Try Again?";
+        }
+
+      } catch (err) {
+        console.error(err);
+        submit.textContent = "Error. Try Again?";
+      }
+
+      // Revert button after 5s
+      setTimeout(() => {
+        submit.disabled = false;
+        submit.textContent = "Submit";
+      }, 5000);
     });
-  });
+});
   

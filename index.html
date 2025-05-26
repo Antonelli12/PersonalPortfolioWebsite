@@ -36,12 +36,15 @@
 
   <!-- HERO -->
   <header id="hero">
-    <h1 class="tektur-title">
-          Hello there! I'm <span class="highlight">Gus</span>, <span id="typed-text"></span>
-    </h1>
-
-    <button id="scroll-button" class="btn">View My Work</button>
-    <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
+    <div class="hero-text-wrapper">    
+      <h1 class="tektur-title">
+            Hello there! I'm <span class="highlight">Gus</span>, <span id="typed-text"></span>
+      </h1>
+    </div>
+    <div class="hero-buttons">
+      <button id="scroll-button" class="btn">View My Work</button>
+      <button id="theme-toggle" class="btn" aria-label="Toggle theme">🌞</button>
+    </div>
   </header>
 
   <!-- NAV -->
@@ -201,17 +204,23 @@
       Send me a message and I’ll get back to you as soon as possible.
     </p>
 
-    <form id="contact-form">
+    <!-- CV Download -->
+    <div class="cv">
+      <a class ="cv-download" href="assets/GusAntonelli_CyberSec_CV.pdf" download>
+           📄 Download my CV here
+      </a>
+      <p class="cv-timestamp">Last Updated: May 2025</p>
+    </div>
+
+    <!-- Contact Form -->
+        <form id="contact-form" action="https://formspree.io/f/xqapvgwb" method="POST"> <!-- Formspree.io to middleman the email process -->
       <input  type="text"  name="name"    placeholder="Name"    required>
       <input  type="email" name="email"   placeholder="Email"   required>
       <textarea name="message" placeholder="Your message" required></textarea>
       <button id="submit" type="submit">Submit</button>
-
-      <p id="form-feedback" hidden>
-        Thank you for the message! I’ll get back to you soon.
-      </p>
     </form>
   </section>
+
 </div><!-- /#container -->
 
 <!-- FOOTER -->

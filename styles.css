@@ -473,7 +473,33 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     max-width: 700px;
     margin: 0 auto 2rem auto;
     line-height: 1.6;
-    /* font-size: 1rem; */
+}
+
+/*CV Downloader*/
+#contact .cv a.cv-download {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 2px dashed var(--highlight-color);
+  border-radius: 5px;
+  color: var(--highlight-color);
+  font-family: "Tektur", sans-serif;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+#contact .cv a.cv-download:hover {
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+}
+
+#contact .cv-timestamp {
+  font-size: 0.75rem;
+  color: gray;
+  opacity: 0.6;
+  margin-top: 0.2rem;
 }
 
 /* Contact Form */
@@ -515,8 +541,7 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     color: var(--highlight-color);
     opacity: 0.7;
 }
-
-  
+ 
 /*=============================
   Footer
 =============================*/
@@ -558,12 +583,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     color: #ffffff !important;
     fill: #ffffff !important;
 }
-
-/*Delete it later --------------------------------------------------------------------*/
-#about, #projects, #contact {
-    padding-bottom: 15vh;
-}
-
 
 /*=============================
   Responsive Design Features
