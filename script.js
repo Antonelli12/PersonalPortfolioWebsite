@@ -187,45 +187,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ---------- Navbar Visibility + Active Section ---------- */
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        const viewportHeight = window.innerHeight;
-        const scrollBottom = scrollY + viewportHeight;
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      
-        // === A. Navbar appears slightly earlier ===
-        if (scrollY > heroBottom - viewportHeight / 2) {
-          navBar.classList.add('show');
-          navBar.classList.remove('hidden');
-        } else {
-          navBar.classList.remove('show');
-          navBar.classList.add('hidden');
+    const topNav = document.getElementById("top-navbar");
+    const topNavLinks = document.querySelectorAll("#top-navbar .nav-item");
+    const allSections = [heroSection, ...document.querySelectorAll("section")];
+
+    function handleNavScroll() {
+      const scrollY = window.scrollY;
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+
+      // === A. Show navbar after hero section ===
+      if (scrollY > heroBottom - 100) {
+        topNav.classList.add("visible");
+      } else {
+        topNav.classList.remove("visible");
+      }
+
+      // === B. Detect currently visible section ===
+      let currentId = "hero";
+      allSections.forEach(section => {
+        const top = section.offsetTop - 200;
+        const bottom = top + section.offsetHeight;
+        if (scrollY >= top && scrollY <= bottom) {
+          currentId = section.id;
         }
-      
-        // === B. Track visible section accurately ===
-        let currentId = 'hero'; 
-      
-        sections.forEach((section) => {
-          const top = section.offsetTop;
-          const height = section.offsetHeight;
-      
-          const isInView =
-            scrollY >= top - 200 && scrollY < top + height - 200;
-      
-          const atBottom =
-            scrollBottom >= document.body.scrollHeight - 5 && section.id === 'contact';
-      
-          if (isInView || atBottom) {
-            currentId = section.id;
-          }
-        });
-      
-        // === C. Highlight active nav link ===
-        navLinks.forEach((link) => {
-          const linkTarget = link.getAttribute('href')?.replace('#', '');
-          link.classList.toggle('active', linkTarget === currentId);
-        });
       });
+
+      // === C. Highlight active nav item ===
+      topNavLinks.forEach(link => {
+        const target = link.getAttribute("href").replace("#", "");
+        link.classList.toggle("active", target === currentId);
+      });
+    }
+
+    window.addEventListener("scroll", handleNavScroll);
+    handleNavScroll();
       
   
     /* ---------- Project grid Expand / Collapse ---------- */
