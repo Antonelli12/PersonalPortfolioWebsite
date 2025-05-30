@@ -1,4 +1,4 @@
-/*=============================
+/* ============================
   Root Variables for Theme Colors
 =============================*/
 :root {
@@ -83,6 +83,16 @@ h3 {
   padding-bottom: 0.3rem;
 }
 
+.section-card {
+  background-color: var(--card-background);
+  padding: 40px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  margin-bottom: 2rem;
+  max-width: 1100px;
+}
+
 button, .linksButton, #submit, #all-projects {
     font-family:  "Tektur", sans-serif;
     font-size: 0.95rem;
@@ -120,7 +130,6 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     font-variation-settings: "wdth" 100;
 }
 
-/* Highlight Important Text */
 .highlight {
     color: var(--highlight-color);
     font-weight: bold;
@@ -239,9 +248,9 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 
 /* Wrapper to constrain and center all content */
 .about-content {
-    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px 1rem 0 1rem;
+    padding: 0;
 }
 
 #about h2 {
@@ -318,18 +327,10 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
     fill: #000000 !important;
   }
   
+
 /*=============================
   Skills
 =============================*/
-#skills {
-  background-color: var(--card-background);
-  padding: 40px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  max-width: 1100px;
-}
-
 .skills-flex-wrapper {
   display: flex;
   flex-direction: row;
@@ -389,6 +390,51 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 .icon-row i:hover {
   transform: scale(1.2);
 }
+
+
+/*=============================
+  Certifications
+=============================*/
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--background-color);
+  border: 2px solid var(--highlight-color);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 1.25rem;
+  gap: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: scale(1.02);
+}
+
+.cert-icon {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.cert-info {
+  flex: 1;
+}
+
+.cert-info h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.cert-info p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 
 /*=============================
   Project Grid Layout
@@ -628,6 +674,19 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
   #navbar {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .section-card {
+    padding: 32px 16px;
+  }
+
+  .about-values {
+    justify-content: center;
+  }
+
+  .about-buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .carousel .card {
