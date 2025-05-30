@@ -323,6 +323,11 @@ button:hover, .linksButton:hover, #submit:hover, #all-projects:hover {
 /*=============================
   Skills
 =============================*/
+#skills {
+  min-height: 30vh;
+  scroll-margin-top: 100px;
+}
+
 .skills-flex-wrapper {
   display: flex;
   flex-direction: row;

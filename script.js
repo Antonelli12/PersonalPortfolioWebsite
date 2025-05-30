@@ -5,11 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection  = document.getElementById('hero');
     const homeLink     = document.querySelector("a[href='#hero']");  
     const aboutSection = document.getElementById('about');
-    const navBar       = document.getElementById('navbar');
-    const navLinks     = document.querySelectorAll('#navbar .nav-item');
-
+    const navBar       = document.getElementById('top-navbar');
+    const navLinks     = document.querySelectorAll('#top-navbar .nav-item');
   
-    const sections = [heroSection, ...document.querySelectorAll('section')]; 
+    const allsections = [heroSection, ...document.querySelectorAll('section')]; 
   
     const projectGrid = document.getElementById('project-grid');
     const toggleBtn   = document.getElementById('toggle-projects');
@@ -191,38 +190,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const topNavLinks = document.querySelectorAll("#top-navbar .nav-item");
     const allSections = [heroSection, ...document.querySelectorAll("section")];
 
-    function handleNavScroll() {
-      const scrollY = window.scrollY;
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    //  Show/hide navbar when scrolling past the hero
+    function handleNavbarVisibility() {
+    const scrollY = window.scrollY;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    topNav.classList.toggle("visible", scrollY > heroBottom - 150);
+    }
 
-      // === A. Show navbar after hero section ===
-      if (scrollY > heroBottom - 100) {
-        topNav.classList.add("visible");
-      } else {
-        topNav.classList.remove("visible");
-      }
+    //  Highlight section closest to top
+    function handleActiveLink() {
+      let currentId = "";
+      let bestTop = -Infinity;
 
-      // === B. Detect currently visible section ===
-      let currentId = "hero";
-      allSections.forEach(section => {
-        const top = section.offsetTop - 200;
-        const bottom = top + section.offsetHeight;
-        if (scrollY >= top && scrollY <= bottom) {
+      for (const section of allSections) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.top > bestTop) {
+          bestTop = rect.top;
           currentId = section.id;
         }
-      });
+      }
 
-      // === C. Highlight active nav item ===
+      // If you're near the bottom and contact is on screen, force highlight it
+      const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10);
+      const contactInView = document.getElementById("contact").getBoundingClientRect().top < window.innerHeight;
+
+      if (nearBottom && contactInView) {
+        currentId = "contact";
+      }
+
       topNavLinks.forEach(link => {
-        const target = link.getAttribute("href").replace("#", "");
-        link.classList.toggle("active", target === currentId);
+        const hrefId = link.getAttribute("href")?.replace("#", "");
+        link.classList.toggle("active", hrefId === currentId);
       });
     }
 
-    window.addEventListener("scroll", handleNavScroll);
-    handleNavScroll();
-      
-  
+    //  Scroll event
+    function handleScroll() {
+      handleNavbarVisibility();
+      handleActiveLink();
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     /* ---------- Project grid Expand / Collapse ---------- */
     toggleBtn?.addEventListener('click', () => {
       const expanded = projectGrid.classList.toggle('expanded');
@@ -230,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       toggleBtn.textContent = expanded ? 'Collapse View' : 'Expand View';
     });
-  
+
   
     /* ---------- Contact‑form submission ---------- */
     form?.addEventListener("submit", async (e) => {
